@@ -2,10 +2,7 @@ package br.com.vinicius.controllers;
 
 import br.com.vinicius.model.Person;
 import br.com.vinicius.service.PersonService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,9 +16,22 @@ public class PersonController {
         this.service = service;
     }
 
+    @PostMapping
+    public Person createPerson(@RequestBody Person person) {
+        return service.createPerson(person);
+    }
+
+    @PutMapping
+    public Person updatePerson(@RequestBody Person person) {
+        return service.updatePerson(person);
+    }
     @GetMapping("/{id}")
     public Person findById(@PathVariable("id") String id) {
         return service.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePerson(@PathVariable("id") String id) {
     }
 
     @GetMapping
