@@ -1,4 +1,16 @@
 spring:
   application:
     name:
-      rest-with-spring-boot-and-java-erudio
+      rest-with-spring-boot-and-java
+  datasource:
+    url: jdbc:postgresql://localhost:5432/java_champion
+    username: java_user
+    password: java_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+        default_batch_fetch_size: 50

@@ -26,12 +26,13 @@ public class PersonController {
         return service.updatePerson(person);
     }
     @GetMapping("/{id}")
-    public Person findById(@PathVariable("id") String id) {
+    public Person findById(@PathVariable("id") Long id) {
         return service.findById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePerson(@PathVariable("id") String id) {
+    public void deletePerson(@PathVariable("id") Long id) {
+        service.deleteById(id);
     }
 
     @GetMapping
